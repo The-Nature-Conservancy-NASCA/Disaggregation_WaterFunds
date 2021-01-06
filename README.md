@@ -19,8 +19,6 @@ En el esquema de cálculo, se realiza la distribución con la función logístic
 
 ## Código
 
-´´´
-
     # -*- coding: utf-8 -*-
     # Import Packages
     import numpy as np
@@ -90,17 +88,11 @@ En el esquema de cálculo, se realiza la distribución con la función logístic
         Results_BaU.to_csv(os.path.join(PathProject,'02-OUTPUTS_BaU.csv'), index_label='Time')
         Results_NBS.to_csv(os.path.join(PathProject,'02-OUTPUTS_NBS.csv'), index_label='Time')
 
-	
-´´´
 ## Tester 
-
-´´´
 
     # terter
     PathProject = r'Z:\Box Sync\01-TNC-ThinkPad-P51\28-Project-WaterFund_App\02-Productos-Intermedios\Python_Convolution\Project'
     Desaggregation_BaU_NBS(PathProject)
-    
-´´´
 
 ## Configuración de un proyecto
 La función para el cálculo de desagregación requiere 3 entradas separadas en archivos csv, las cuales son:
