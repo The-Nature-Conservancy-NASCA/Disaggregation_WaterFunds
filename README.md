@@ -134,3 +134,29 @@ Además, la primera fila debe corresponder a los resultados del escenario Curren
 
 ### 01-INPUTS_NBS.csv
 
+Este archivo contiene los parámetros de las NBS que ha configurado el usuario. La estructura de este archivo es la siguiente:
+
+|NBS-Name|Time-Max-Benefit|Benefit-t0|A-1 (ha)|A-2 (ha)|A-3 (ha)|
+|--|--|--|--|--|--|
+|NBS-1|0|100|1500|1450|1150|
+|NBS-2|7|0.1|1200|1250|1500|
+|NBS-3|12|0.1|1300|1100|950|
+
+En este sentido, el archivo debe contener tantas finales como NBS ha configurado el usuario, mientras que siempre las 3 primeras columnas; las siguientes columnas varían de acuerdo con la cantidad de años de implementación de las NBS. Para este caso, se presenta la estructura para 3 años de implementación.
+
+- **Year**: Nombre de la NBS
+- **Time-Max-Benefit**: Tiempo máximo en el cual la NBS alcanza el máximo beneficio
+- **Benefit-t0**: Porcentaje del beneficio que se alcanza en el tiempo cero cuando se implementa la NBS
+- **A-1 (ha)**: Área de NBS que se implementa en el año 1
+- **A-1 (ha)**: Área de NBS que se implementa en el año 2
+- **A-1 (ha)**: Área de NBS que se implementa en el año 3
+
+Nota: Las áreas no son acumuladas. Corresponde solamente el área que se implementa en el año en específico.
+
+### 01-INPUTS_Time.csv
+
+Este archivo contiene el tiempo en el cual se realiza el análisis. La estructura de este archivo para un periodo de 30 años es la siguiente.
+
+|Time|
+|--|
+|30|
