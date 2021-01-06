@@ -160,3 +160,7 @@ Este archivo contiene el tiempo en el cual se realiza el análisis. La estructur
 |Time|
 |--|
 |30|
+
+## Mayor información 
+Para Mayor infromación, puede revisar el archivo de [EXCEL](https://tnc.box.com/s/zwykncmrmqc7dde4znfr30iagrouxkhh) en el cual se consolida el proceso que se debe desarrollar en la WaterFunds App
+
