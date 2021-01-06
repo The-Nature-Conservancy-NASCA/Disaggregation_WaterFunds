@@ -1,4 +1,4 @@
-Year,Time-Max-Benefit,Benefit-t0,A-1 (ha),A-2 (ha),A-3 (ha)
+NBS-Name,Time-Max-Benefit,Benefit-t0,A-1 (ha),A-2 (ha),A-3 (ha)
 NBS-1,0,100,1500,1450,1150
 NBS-2,7,0.1,1200,1250,1500
 NBS-3,12,0.1,1300,1100,950
