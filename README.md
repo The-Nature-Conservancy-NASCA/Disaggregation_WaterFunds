@@ -121,6 +121,7 @@ Este archivo contiene los resultados de las ejecuciones InVEST para cada uno de 
 |NBS-Year_3|1100000000|62000|520000|310000|132751500|330|
 
 En este sentido, el archivo debe contener 7 columnas, donde:
+
 	• **Scenario-InVEST**: Nombre de escenario
 	• **AWY (m3)**: Los resultados de volumen de agua anual multianual del modelo Anual Water Yield en m3
 	• **Wsed (Ton)**: Los resultados de carga de sedimentos anuales multianuales en toneladas del modelo Sediment Delivery Ratio.
