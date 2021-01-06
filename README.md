@@ -122,13 +122,13 @@ Este archivo contiene los resultados de las ejecuciones InVEST para cada uno de 
 
 En este sentido, el archivo debe contener 7 columnas, donde:
 
-• **Scenario-InVEST**: Nombre de escenario
-• **AWY (m3)**: Los resultados de volumen de agua anual multianual del modelo Anual Water Yield en m3
-• **Wsed (Ton)**: Los resultados de carga de sedimentos anuales multianuales en toneladas del modelo Sediment Delivery Ratio.
-• **WN (Kg)**: Los resultados de carga de nitrógeno anuales multianuales en toneladas del modelo Nutrient Delivery Ratio.
-• **WP (kg)**: Los resultados de carga de fosforo anuales multianuales en toneladas del modelo Nutrient Delivery Ratio.
-• **BF (m3)**: Los resultados de flujo base anuales multianuales en m3 del modelo Seasonal Water Yield. Es importante tener en cuenta que este modelo arroja los resultados en mm, por lo que se debe realizar la conversión multiplicando por el área de la cuenca.
-• **WC (Ton)**: Los resultados almacenamiento de carbono anual multianual en toneladas del modelo Carbon Storage and Sequestration.
+- **Scenario-InVEST**: Nombre de escenario
+- **AWY (m3)**: Los resultados de volumen de agua anual multianual del modelo Anual Water Yield en m3
+- **Wsed (Ton)**: Los resultados de carga de sedimentos anuales multianuales en toneladas del modelo Sediment Delivery Ratio.
+- **WN (Kg)**: Los resultados de carga de nitrógeno anuales multianuales en toneladas del modelo Nutrient Delivery Ratio.
+- **WP (kg)**: Los resultados de carga de fosforo anuales multianuales en toneladas del modelo Nutrient Delivery Ratio.
+- **BF (m3)**: Los resultados de flujo base anuales multianuales en m3 del modelo Seasonal Water Yield. Es importante tener en cuenta que este modelo arroja los resultados en mm, por lo que se debe realizar la conversión multiplicando por el área de la cuenca.
+- **WC (Ton)**: Los resultados almacenamiento de carbono anual multianual en toneladas del modelo Carbon Storage and Sequestration.
 
 Además, la primera fila debe corresponder a los resultados del escenario Current State, la segunda fila corresponde a los resultados del escenario Bussines as Usual y las siguientes corresponde a los resultados de los años de implementación de las NBS. Es importante tener en cuenta que estos resultados corresponden a las implementaciones acumuladas de las NBS año tras año.
 
