@@ -101,3 +101,22 @@ En el esquema de cálculo, se realiza la distribución con la función logístic
     Desaggregation_BaU_NBS(PathProject)
     
 ´´´
+
+## Configuración de un proyecto
+La función para el cálculo de desagregación requiere 3 entradas separadas en archivos csv, las cuales son:
+•	01-INPUTS_InVEST.csv
+•	01-INPUTS_NBS.csv
+•	01-INPUTS_Time.csv
+El nombre de los archivos csv de entradas no pueden cambiar. A continuación, se describe la información que debe contener cada uno de ellos.
+
+### 01-INPUTS_InVEST.csv
+Este archivo contiene los resultados de las ejecuciones InVEST para cada uno de los escenarios. La estructura 
+
+|Scenario-InVEST|AWY (m3)|Wsed (Ton)|WN (Kg)|WP (kg)|BF (m3)|WC (Ton)|
+|--|--|--|--|--|--|--|
+|Current|800000000|100000|700000|500000|94822500|150|
+|BaU|600000000|200000|800000|700000|50572000|50|
+|NBS-Year_1|900000000|70000|600000|400000|120108500|250|
+|NBS-Year_2|1000000000|65000|550000|350000|126430000|300|
+|NBS-Year_3|1100000000|62000|520000|310000|132751500|330|
+
