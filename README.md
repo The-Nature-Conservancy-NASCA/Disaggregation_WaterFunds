@@ -95,8 +95,7 @@ En el esquema de cálculo, se realiza la distribución con la función logístic
 ´´´
 ## Tester 
 ´´´
-  # Path
-  PathProject = r'Z:\Box Sync\01-TNC-ThinkPad-P51\28-Project-WaterFund_App\02-Productos-Intermedios\Python_Convolution\Project'
-  # Desaggregation
-  Desaggregation_BaU_NBS(PathProject)
+    # terter
+    PathProject = r'Z:\Box Sync\01-TNC-ThinkPad-P51\28-Project-WaterFund_App\02-Productos-Intermedios\Python_Convolution\Project'
+    Desaggregation_BaU_NBS(PathProject)
 ´´´
