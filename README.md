@@ -18,7 +18,9 @@ La distribución del resultado InVEST en el tiempo se realizará utilizando una 
 En el esquema de cálculo, se realiza la distribución con la función logística para el beneficio marginal de cada portafolio y al final se realiza una convolución de los resultados considerando el desplazamiento anual de cada portafolio. El desarrollador de software deberá comprender el esquema de cálculo formulado a partir de este ejemplo y generalizarlo para su implementación
 
 ## Código
+
 ´´´
+
     # -*- coding: utf-8 -*-
     # Import Packages
     import numpy as np
@@ -96,6 +98,7 @@ En el esquema de cálculo, se realiza la distribución con la función logístic
 ## Tester 
 
 ´´´
+
     # terter
     PathProject = r'Z:\Box Sync\01-TNC-ThinkPad-P51\28-Project-WaterFund_App\02-Productos-Intermedios\Python_Convolution\Project'
     Desaggregation_BaU_NBS(PathProject)
