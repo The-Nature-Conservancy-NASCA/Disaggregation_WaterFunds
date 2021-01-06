@@ -110,7 +110,7 @@ La función para el cálculo de desagregación requiere 3 entradas separadas en 
 El nombre de los archivos csv de entradas no pueden cambiar. A continuación, se describe la información que debe contener cada uno de ellos.
 
 ### 01-INPUTS_InVEST.csv
-Este archivo contiene los resultados de las ejecuciones InVEST para cada uno de los escenarios. La estructura 
+Este archivo contiene los resultados de las ejecuciones InVEST para cada uno de los escenarios. La estructura de este archivo es la siguiente.
 
 |Scenario-InVEST|AWY (m3)|Wsed (Ton)|WN (Kg)|WP (kg)|BF (m3)|WC (Ton)|
 |--|--|--|--|--|--|--|
@@ -119,4 +119,17 @@ Este archivo contiene los resultados de las ejecuciones InVEST para cada uno de 
 |NBS-Year_1|900000000|70000|600000|400000|120108500|250|
 |NBS-Year_2|1000000000|65000|550000|350000|126430000|300|
 |NBS-Year_3|1100000000|62000|520000|310000|132751500|330|
+
+En este sentido, el archivo debe contener 7 columnas, donde:
+•	**Scenario-InVEST**: Nombre de escenario
+•	**AWY (m3)**: Los resultados de volumen de agua anual multianual del modelo Anual Water Yield en m3
+•	**Wsed (Ton)**: Los resultados de carga de sedimentos anuales multianuales en toneladas del modelo Sediment Delivery Ratio.
+•	**WN (Kg)**: Los resultados de carga de nitrógeno anuales multianuales en toneladas del modelo Nutrient Delivery Ratio.
+•	**WP (kg)**: Los resultados de carga de fosforo anuales multianuales en toneladas del modelo Nutrient Delivery Ratio.
+•	**BF (m3)**: Los resultados de flujo base anuales multianuales en m3 del modelo Seasonal Water Yield. Es importante tener en cuenta que este modelo arroja los resultados en mm, por lo que se debe realizar la conversión multiplicando por el área de la cuenca.
+•	**WC (Ton)**: Los resultados almacenamiento de carbono anual multianual en toneladas del modelo Carbon Storage and Sequestration.
+
+Además, la primera fila debe corresponder a los resultados del escenario Current State, la segunda fila corresponde a los resultados del escenario Bussines as Usual y las siguientes corresponde a los resultados de los años de implementación de las NBS. Es importante tener en cuenta que estos resultados corresponden a las implementaciones acumuladas de las NBS año tras año.
+
+### 01-INPUTS_NBS.csv
 
