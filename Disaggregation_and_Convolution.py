@@ -68,5 +68,5 @@ def Desaggregation_BaU_NBS(PathProject):
     Results_NBS.to_csv(os.path.join(PathProject,'02-OUTPUTS_NBS.csv'), index_label='Time')
 
 # terter
-PathProject = r'Z:\Box Sync\01-TNC-ThinkPad-P51\28-Project-WaterFund_App\02-Productos-Intermedios\Python_Convolution\Project'
-Desaggregation_BaU_NBS(PathProject)
+#PathProject = r'Z:\Box Sync\01-TNC-ThinkPad-P51\28-Project-WaterFund_App\02-Productos-Intermedios\Python_Convolution\Project'
+#Desaggregation_BaU_NBS(PathProject)
