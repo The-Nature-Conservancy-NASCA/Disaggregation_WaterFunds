@@ -4,14 +4,14 @@ import numpy as np
 import pandas as pd
 import os
 
-def Desaggregation_BaU_NBS(in_data, out_data):
+def Desaggregation_BaU_NBS(PathProject):
     # Funtion Lambda
     Sigmoid_Desaggregation = lambda Wmax, Wo, r, t: Wmax/(1 + (((Wmax/Wo) - 1)*np.exp(-t*r)))
 
     NameCol     = ['AWY (m3)','Wsed (Ton)','WN (Kg)','WP (kg)','BF (m3)','WC (Ton)']
-    Data        = pd.read_csv(os.path.join(in_data,'01-INPUTS_InVEST.csv'),usecols=NameCol)
-    NBS         = pd.read_csv(os.path.join(in_data,'01-INPUTS_NBS.csv')).values[:,1:]
-    Time        = pd.read_csv(os.path.join(in_data,'01-INPUTS_Time.csv')).values[0][0]
+    Data        = pd.read_csv(os.path.join(PathProject,'01-INPUTS_InVEST.csv'),usecols=NameCol)
+    NBS         = pd.read_csv(os.path.join(PathProject,'01-INPUTS_NBS.csv')).values[:,1:]
+    Time        = pd.read_csv(os.path.join(PathProject,'01-INPUTS_Time.csv')).values[0][0]
 
     '''
     Current-BaU
@@ -64,16 +64,9 @@ def Desaggregation_BaU_NBS(in_data, out_data):
     '''    
     Save Data
     '''
-    print ("Saving data...")
-    Results_BaU.to_csv(os.path.join(out_data,'02-OUTPUTS_BaU.csv'), index_label='Time')
-    Results_NBS.to_csv(os.path.join(out_data,'02-OUTPUTS_NBS.csv'), index_label='Time')
-    result_bau_dict = Results_BaU.to_dict()    
-    results_nbs_dict = Results_NBS.to_dict()
-    dict_result = dict()
-    dict_result['bau'] = result_bau_dict
-    dict_result['nbs'] = results_nbs_dict
-    return dict_result
+    Results_BaU.to_csv(os.path.join(PathProject,'02-OUTPUTS_BaU.csv'), index_label='Time')
+    Results_NBS.to_csv(os.path.join(PathProject,'02-OUTPUTS_NBS.csv'), index_label='Time')
 
 # terter
-#PathProject = r'Z:\Box Sync\01-TNC-ThinkPad-P51\28-Project-WaterFund_App\02-Productos-Intermedios\Python_Convolution\Project'
-#Desaggregation_BaU_NBS(PathProject, PathProject)
+PathProject = r'Z:\Box Sync\01-TNC-ThinkPad-P51\28-Project-WaterFund_App\02-Productos-Intermedios\Python_Convolution\Project'
+Desaggregation_BaU_NBS(PathProject)
