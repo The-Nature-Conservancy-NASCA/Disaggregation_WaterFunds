@@ -56,9 +56,9 @@ def Desaggregation_BaU_NBS(PathProject):
             r    = -1*np.log(0.000000001)/tmax
 
             #print(Wmax,'|', Wo,'|', r)
-
             Tmp[(j+1):,j] = Sigmoid_Desaggregation(Wmax, Wo, r, t)
-
+        
+        Tmp[np.isnan(Tmp)] = 0
         Results_NBS[NameCol[i]] = np.sum(Tmp,1) + Results_BaU[NameCol[i]].values
 
     '''    
