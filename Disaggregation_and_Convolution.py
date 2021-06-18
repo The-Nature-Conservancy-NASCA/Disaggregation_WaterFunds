@@ -31,8 +31,8 @@ def Desaggregation_BaU_NBS(PathProject):
     t_NBS = np.empty([n,1])
     p_NBS = np.empty([n,1])
     for i in range(0,n):
-        t_NBS[i] = np.sum(NBS[:,0]* NBS[:,i+2])/np.sum(NBS[:,i+2])
-        p_NBS[i] = np.sum(NBS[:,1]* NBS[:,i+2])/np.sum(NBS[:,i+2])
+        t_NBS[i] = np.nansum(NBS[:,0]* NBS[:,i+2])/np.nansum(NBS[:,i+2])
+        p_NBS[i] = np.nansum(NBS[:,1]* NBS[:,i+2])/np.nansum(NBS[:,i+2])
 
     # Desaggregation
     Results_NBS = pd.DataFrame(data=np.empty([Time + 1, nn]), columns=NameCol)
@@ -41,10 +41,10 @@ def Desaggregation_BaU_NBS(PathProject):
     [f,c]       = Data.shape
     Data1       = Data[2:].values
     Data1[0,:]  = Data1[0,:] - Data.loc[1].values
-    Tmp         = np.cumsum(Data1,0)
+    Tmp         = np.nancumsum(Data1,0)
     for i in range(1,f-2):
         Data1[i,:]   = Data1[i,:] - Data.loc[1].values - Tmp[i-1,:]
-        Tmp = np.cumsum(Data1,0)
+        Tmp = np.nancumsum(Data1,0)
 
     for i in range(0,nn):
         Tmp = np.zeros((Time+1,n))
