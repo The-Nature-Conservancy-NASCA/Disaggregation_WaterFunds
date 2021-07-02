@@ -12,7 +12,11 @@ def Desaggregation_BaU_NBS(PathProject):
     Data        = pd.read_csv(os.path.join(PathProject,'01-INPUTS_InVEST.csv'),usecols=NameCol)
     NBS         = pd.read_csv(os.path.join(PathProject,'01-INPUTS_NBS.csv')).values[:,1:]
     Time        = pd.read_csv(os.path.join(PathProject,'01-INPUTS_Time.csv')).values[0][0]
-
+    
+    # Control Error - Zero - OJO !!!!!
+    id = sum(NBS) > 0
+    NBS = NBS[:,id]
+    
     '''
     Current-BaU
     '''
