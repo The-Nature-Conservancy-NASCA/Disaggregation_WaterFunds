@@ -64,7 +64,22 @@ def Desaggregation_BaU_NBS(PathProject):
         
         Tmp[np.isnan(Tmp)] = 0
         Results_NBS[NameCol[i]] = np.sum(Tmp,1) + Results_BaU[NameCol[i]].values
+    
+    # Correct Negative Values
+    Posi = Results_NBS.index.values
+    for i in range(0,nn):
+        if np.sum(Results_NBS.iloc[:, i] < 0) > 0:
+            TmpBaU = Results_BaU.iloc[:, i]
+            TmpNBS = Results_NBS.iloc[:, i]
 
+            n = np.max(Posi[TmpNBS < 0]) + 1
+            V = (TmpBaU[n] - TmpNBS[n])/TmpBaU[n]
+            for j in range(1,n):
+                TmpNBS[j] = TmpBaU[j]*V
+            Results_NBS.iloc[:, i] = TmpNBS
+        else:
+            print('No Correct -> '+NameCol[i])
+            
     '''    
     Save Data
     '''
@@ -72,5 +87,5 @@ def Desaggregation_BaU_NBS(PathProject):
     Results_NBS.to_csv(os.path.join(PathProject,'02-OUTPUTS_NBS.csv'), index_label='Time')
 
 # terter
-PathProject = r'Z:\Box Sync\01-TNC-ThinkPad-P51\28-Project-WaterFund_App\02-Productos-Intermedios\Python_Convolution\Project'
-Desaggregation_BaU_NBS(PathProject)
+#PathProject = r'Z:\Box Sync\01-TNC-ThinkPad-P51\28-Project-WaterFund_App\02-Productos-Intermedios\Python_Convolution\Project'
+#Desaggregation_BaU_NBS(PathProject)
