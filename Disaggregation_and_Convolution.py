@@ -13,6 +13,10 @@ def Desaggregation_BaU_NBS(PathProject):
     NBS         = pd.read_csv(os.path.join(PathProject,'01-INPUTS_NBS.csv')).values[:,1:]
     Time        = pd.read_csv(os.path.join(PathProject,'01-INPUTS_Time.csv')).values[0][0]
     
+    # Check AWY = 0  -> 0.0031536 m3 = 0.1 l/s
+    id = Data['AWY (m3)'] == 0
+    Data['AWY (m3)'].iloc[id] = 0.0031536
+    
     # Control Error - Zero - OJO !!!!!
     id = sum(NBS) > 0
     NBS = NBS[:,id]
