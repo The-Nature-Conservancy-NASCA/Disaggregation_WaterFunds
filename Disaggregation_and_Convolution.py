@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import os
 
-def Desaggregation_BaU_NBS(PathProject):
+def Desaggregation_BaU_NBS(PathProject, out_data):
     # Funtion Lambda
     Sigmoid_Desaggregation = lambda Wmax, Wo, r, t: Wmax/(1 + (((Wmax/Wo) - 1)*np.exp(-t*r)))
 
@@ -12,10 +12,6 @@ def Desaggregation_BaU_NBS(PathProject):
     Data        = pd.read_csv(os.path.join(PathProject,'01-INPUTS_InVEST.csv'),usecols=NameCol)
     NBS         = pd.read_csv(os.path.join(PathProject,'01-INPUTS_NBS.csv')).values[:,1:]
     Time        = pd.read_csv(os.path.join(PathProject,'01-INPUTS_Time.csv')).values[0][0]
-    
-    # Check AWY = 0  -> 0.0031536 m3 = 0.1 l/s
-    id = Data['AWY (m3)'] == 0
-    Data['AWY (m3)'].iloc[id] = 0.0031536
     
     # Control Error - Zero - OJO !!!!!
     id = sum(NBS) > 0
@@ -87,8 +83,8 @@ def Desaggregation_BaU_NBS(PathProject):
     '''    
     Save Data
     '''
-    Results_BaU.to_csv(os.path.join(PathProject,'02-OUTPUTS_BaU.csv'), index_label='Time')
-    Results_NBS.to_csv(os.path.join(PathProject,'02-OUTPUTS_NBS.csv'), index_label='Time')
+    Results_BaU.to_csv(os.path.join(out_data,'02-OUTPUTS_BaU.csv'), index_label='Time')
+    Results_NBS.to_csv(os.path.join(out_data,'02-OUTPUTS_NBS.csv'), index_label='Time')
 
 # terter
 #PathProject = r'Z:\Box Sync\01-TNC-ThinkPad-P51\28-Project-WaterFund_App\02-Productos-Intermedios\Python_Convolution\Project'
