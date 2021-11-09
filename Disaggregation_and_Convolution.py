@@ -17,6 +17,12 @@ def Desaggregation_BaU_NBS(PathProject, out_data):
     id = sum(NBS) > 0
     NBS = NBS[:,id]
     
+    # Check Concentration SDR
+    CS = (Data['Wsed (Ton)'] / Data['AWY (m3)']) * 1E6
+    for i in range(1,len(CS) - 1):
+        if CS[i] < CS[i + 1]:
+            Data.iloc[i+1,0] = Data.iloc[i,0]
+            
     '''
     Current-BaU
     '''
