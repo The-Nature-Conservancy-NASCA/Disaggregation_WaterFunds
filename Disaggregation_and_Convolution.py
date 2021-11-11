@@ -22,11 +22,15 @@ def Desaggregation_BaU_NBS(PathProject, out_data):
     for i in range(1,len(CS) - 1):
         if CS[i] < CS[i + 1]:
             Data.iloc[i+1,0] = Data.iloc[i,0]
-            
+    
+    # Check negativo BF
+    if np.sum(Data['BF (m3)'] < 0):
+        Data['BF (m3)'][:] = 0.01
+        
     '''
     Current-BaU
     '''
-    nn = nn = np.shape(Data)[1]
+    nn = np.shape(Data)[1]
     Results_BaU = pd.DataFrame(data=np.empty([Time + 1, nn]), columns=NameCol)
     r = -1*np.log(0.000000001)/Time
     t = np.arange(0,Time + 1)
@@ -74,17 +78,19 @@ def Desaggregation_BaU_NBS(PathProject, out_data):
     # Correct Negative Values
     Posi = Results_NBS.index.values
     for i in range(0,nn):
+        print(Data.columns[i])
         if np.sum(Results_NBS.iloc[:, i] < 0) > 0:
             TmpBaU = Results_BaU.iloc[:, i]
             TmpNBS = Results_NBS.iloc[:, i]
 
-            n = np.max(Posi[TmpNBS < 0]) + 1
-            V = (TmpBaU[n] - TmpNBS[n])/TmpBaU[n]
-            for j in range(1,n):
-                TmpNBS[j] = TmpBaU[j]*V
+            nN = Posi[TmpNBS < 0]
+            V = (TmpBaU[Posi[TmpNBS > 0]] - TmpNBS[Posi[TmpNBS > 0]])/TmpBaU[Posi[TmpNBS > 0]]
+            V = np.median(V)
+            for j in range(0,len(nN)):
+                TmpNBS[nN[j]] = TmpBaU[nN[j]]*V
             Results_NBS.iloc[:, i] = TmpNBS
         else:
-            print('No Correct -> '+NameCol[i])
+            print('No Correct -> ' + NameCol[i])
             
     '''    
     Save Data
