@@ -17,6 +17,10 @@ def Desaggregation_BaU_NBS(PathProject, out_data):
     id = sum(NBS) > 0
     NBS = NBS[:,id]
     
+    # Check AWY = 0  -> 0.0031536 m3 = 0.1 l/s
+    id = Data['AWY (m3)'] == 0
+    Data['AWY (m3)'].iloc[id] = 0.0031536
+    
     # Check Concentration SDR
     CS = (Data['Wsed (Ton)'] / Data['AWY (m3)']) * 1E6
     for i in range(1,len(CS) - 1):
